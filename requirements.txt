@@ -1,2 +1,10 @@
-Flask==2.3.2
+Flask==2.3.3
 Flask-SQLAlchemy==3.0.5
+pytest==7.4.0
+pytest-benchmark==4.0.0
+pytest-cov==4.1.0
+Flask-Testing==0.8.1
+requests==2.31.0
+bandit==1.7.5
+Werkzeug==2.3.7
+cryptography==41.0.3
