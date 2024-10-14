@@ -1,6 +1,5 @@
-# Prompts Óptimos para Desarrollar y Probar la API de Guepardos
+# Prompts para Desarrollar y Probar la API de Guepardos
 
-Este archivo contiene una colección de prompts diseñados para estudiantes de ingeniería informática. Los prompts están enfocados en obtener código y explicaciones útiles sobre pruebas de software (unitarias, integración, funcionales, seguridad, rendimiento) aplicadas a la API Flask que estás desarrollando.
 
 ## 1. Generar Pruebas Unitarias
 
