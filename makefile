@@ -1,10 +1,10 @@
-# Makefile for a Python project
-
 # Variables
 PYTHON = python3
 VENV = venv
 REQUIREMENTS = requirements.txt
 APP = app.py
+COVERAGE_REQS = coverage.txt
+TRIVY_REQS = trivy.txt
 
 # Default target
 all: help
@@ -16,6 +16,8 @@ help:
 	@echo "  make install    Install dependencies"
 	@echo "  make run        Run the application"
 	@echo "  make test       Run all tests"
+	@echo "  make coverage   Run coverage analysis"
+	@echo "  make trivy      Run trivy vulnerability scan"
 	@echo "  make clean      Remove __pycache__ and other temp files"
 
 # Create a virtual environment
@@ -26,6 +28,9 @@ venv:
 install: venv
 	@echo "Installing dependencies..."
 	@. $(VENV)/bin/activate; pip install -r $(REQUIREMENTS)
+	@echo "Installing coverage and trivy..."
+	@. $(VENV)/bin/activate; pip install -r $(COVERAGE_REQS)
+	@. $(VENV)/bin/activate; pip install -r $(TRIVY_REQS)
 
 # Run the application
 run:
@@ -45,9 +50,22 @@ test:
 	@echo "Running unit tests..."
 	@. $(VENV)/bin/activate; pytest unittest_app.py
 
+# Run coverage analysis
+coverage: install
+	@echo "Running coverage analysis..."
+	@. $(VENV)/bin/activate; coverage run --source=$(APP) -m pytest
+	@. $(VENV)/bin/activate; coverage report -m
+
+# Run trivy vulnerability scan
+trivy: install
+	@echo "Running trivy vulnerability scan..."
+	@. $(VENV)/bin/activate; trivy image $(VENV)
+
 # Clean up temporary files
 clean:
 	@echo "Cleaning up temporary files..."
 	rm -rf __pycache__/
 	rm -rf $(VENV)
 	rm -rf *.egg-info
+	rm -rf.coverage
+
