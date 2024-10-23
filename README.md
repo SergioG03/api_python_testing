@@ -39,12 +39,10 @@ Además, se han implementado múltiples tipos de pruebas, tales como unitarias, 
 
 La aplicación estará disponible en `http://127.0.0.1:5000`.
 
-## Pruebas
+## Apuntes sobre PROJEN y POETRY
 
-### Pruebas unitarias
+Versiones de Node.js y Python: La instalación de Projen requirió una versión compatible de Node.js, y el uso de python en lugar de python3 causó errores debido a la configuración del sistema.
+Entorno Virtual: La creación y activación del entorno virtual fueron cruciales, pero requirieron verificar la existencia del archivo activate y asegurarse de que el path estuviera correcto.
+Dependencias y Paquetes: La instalación de pip en el entorno virtual fue necesaria para evitar errores durante la configuración de Projen.
 
-Las pruebas unitarias validan el correcto funcionamiento de las funciones y rutas CRUD (Crear, Leer, Actualizar, Eliminar). A continuación te mostramos cómo se obtuvieron las pruebas unitarias utilizando un modelo de lenguaje.
 
-#### Prompt usado para las pruebas unitarias:
-```txt
-Necesito que hagas todas las pruebas que puedas unitarias dentro de mi código. Dame el código completo funcional.
